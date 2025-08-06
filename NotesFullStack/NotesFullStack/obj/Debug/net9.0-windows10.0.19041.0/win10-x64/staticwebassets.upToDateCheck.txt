@@ -1,0 +1,4 @@
+wwwroot\app.css
+wwwroot\index.html
+C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack\wwwroot\app.css
+C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack\wwwroot\index.html
