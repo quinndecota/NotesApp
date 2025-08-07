@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 using NotesFullStack.Shared.Services;
 using NotesFullStack.Web.Components;
+using NotesFullStack.Web.Data;
 using NotesFullStack.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,12 @@ builder.Services.AddRazorComponents()
 
 // Add device-specific services used by the NotesFullStack.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+
+builder.Services.AddDbContextFactory<DataContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("Default");
+    options.UseSqlServer(connectionString);
+});
 
 var app = builder.Build();
 

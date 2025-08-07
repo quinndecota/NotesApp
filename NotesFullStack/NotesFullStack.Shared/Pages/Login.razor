@@ -1,25 +1,34 @@
 ﻿@page "/login"
+@using NotesFullStack.Shared.DTOs
 
-<div class="flex h-screen w-screen items-center justify-center" >
-    <div class="rounded-md p-5 shadow">
+<div class="flex h-screen w-screen content-center items-center justify-center bg-gray-100" >
+    <div class="rounded-md bg-white p-5 shadow">
+        <h1>Login</h1>
         <EditForm Model="_loginModel">
-            <div class="">
-                <label>Username</label>
-                <InputText @bind-Value="_loginModel.Username" class="" placeholder="Enter Username" />
-            </div>
+            <DataAnnotationsValidator />
+            <div class="spave-y-3 bg-white">
+                <div >
+                    <label>Email</label>
+                    <InputText @bind-Value="_loginModel.Email" class="w-full px-2 py-1" placeholder="Enter Email" />
+                    <ValidationMessage For="() => _loginModel.Email" class="text-red-700" />
 
-            <div class="">
+                </div>
+
+                <div class="">
                 
-                <label>Password</label>
-                <InputText @bind-Value="_loginModel.Password" class="password" placeholder="Enter Password" />
-            </div>
+                    <label>Password</label>
+                    <InputText @bind-Value="_loginModel.Password" class="password w-full px-2 py-1" placeholder="Enter Password" />
+                    <ValidationMessage For="() => _loginModel.Password" class="text-red-700" />
 
-            <div class="">
+                </div>
+
+                <div class="">
                 
-                <button type="submit" class=""> Login</button>
-                <hr/>
-                <NavLink href="register" class="">No Account? Click here.</NavLink>
+                    <button type="submit" class="w-full rounded-md bg-blue-700 text-center text-white hover:bg-blend-darken"> Login</button>
+                    <hr/>
+                    <NavLink href="register" class="text-blue-700">No Account? Click here.</NavLink>
 
+                </div>
             </div>
         </EditForm>
 
