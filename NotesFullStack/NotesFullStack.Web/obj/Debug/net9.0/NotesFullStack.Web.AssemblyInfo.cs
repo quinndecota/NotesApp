@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NotesFullStack.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+830d137ad727d2b3a78f595ca7c163d267a5afa4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NotesFullStack.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NotesFullStack.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

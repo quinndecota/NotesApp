@@ -40,5 +40,25 @@
       <LastWriteTime>Wed, 06 Aug 2025 18:45:05 GMT</LastWriteTime>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NotesFullStack.styles.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>NotesFullStack</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>NotesFullStack.styles.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>CurrentProject</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName>ScopedCss</AssetTraitName>
+      <AssetTraitValue>ApplicationBundle</AssetTraitValue>
+      <Fingerprint>mr65mseptu</Fingerprint>
+      <Integrity>gpct87UNZgMzkf5kKCVz2HxWw6USl5U3zVfDsIRuals=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>93</FileLength>
+      <LastWriteTime>Wed, 06 Aug 2025 22:22:16 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NotesFullStack.styles.css'))</OriginalItemSpec>
+    </StaticWebAsset>
   </ItemGroup>
 </Project>

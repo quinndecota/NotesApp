@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Projects\\NotesFullStack\\NotesFullStack\\NotesFullStack\\obj\\Debug\\net9.0-android\\scopedcss\\bundle\\NotesFullStack.styles.css",
+      "PackagePath": "staticwebassets\\NotesFullStack.styles.css"
+    },
+    {
       "Id": "C:\\Projects\\NotesFullStack\\NotesFullStack\\NotesFullStack\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },

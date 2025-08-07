@@ -32,12 +32,12 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ma1qupuye9</Fingerprint>
-      <Integrity>Dsv3iWEjypszOA+7/KFmmjCI9TOIjLQyolEuVO7HyuU=</Integrity>
+      <Fingerprint>q5gr7fc5ai</Fingerprint>
+      <Integrity>jo0E2RWVq+9SpUdbIit91u6taje/un5n8oXKLMYdGGg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <FileLength>790</FileLength>
-      <LastWriteTime>Wed, 06 Aug 2025 18:45:05 GMT</LastWriteTime>
+      <FileLength>693</FileLength>
+      <LastWriteTime>Thu, 07 Aug 2025 17:00:37 GMT</LastWriteTime>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>

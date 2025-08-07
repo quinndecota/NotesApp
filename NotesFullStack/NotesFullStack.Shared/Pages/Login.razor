@@ -1,0 +1,30 @@
+﻿@page "/login"
+
+<div class="flex h-screen w-screen items-center justify-center" >
+    <div class="rounded-md p-5 shadow">
+        <EditForm Model="_loginModel">
+            <div class="">
+                <label>Username</label>
+                <InputText @bind-Value="_loginModel.Username" class="" placeholder="Enter Username" />
+            </div>
+
+            <div class="">
+                
+                <label>Password</label>
+                <InputText @bind-Value="_loginModel.Password" class="password" placeholder="Enter Password" />
+            </div>
+
+            <div class="">
+                
+                <button type="submit" class=""> Login</button>
+                <hr/>
+                <NavLink href="register" class="">No Account? Click here.</NavLink>
+
+            </div>
+        </EditForm>
+
+    </div>
+</div>
+@code {
+    private LoginModel _loginModel = new();
+}

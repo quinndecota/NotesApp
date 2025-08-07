@@ -24,5 +24,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ma1qupuye9"},{"Name":"integrity","Value":"sha256-Dsv3iWEjypszOA\u002B7/KFmmjCI9TOIjLQyolEuVO7HyuU="},{"Name":"label","Value":"index.html"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"790"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022Dsv3iWEjypszOA\u002B7/KFmmjCI9TOIjLQyolEuVO7HyuU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:45:05 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="NotesFullStack.mr65mseptu.styles.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NotesFullStack.styles.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"mr65mseptu"},{"Name":"integrity","Value":"sha256-gpct87UNZgMzkf5kKCVz2HxWw6USl5U3zVfDsIRuals="},{"Name":"label","Value":"NotesFullStack.styles.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"93"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022gpct87UNZgMzkf5kKCVz2HxWw6USl5U3zVfDsIRuals=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 22:22:16 GMT"},{"Name":"Link","Value":"\u003C_content/NotesFullStack.Shared/NotesFullStack.Shared.xfta8uwavp.bundle.scp.css\u003E; rel=\u0022preload\u0022; as=\u0022style\u0022"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="NotesFullStack.styles.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\NotesFullStack.styles.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gpct87UNZgMzkf5kKCVz2HxWw6USl5U3zVfDsIRuals="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"93"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022gpct87UNZgMzkf5kKCVz2HxWw6USl5U3zVfDsIRuals=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 22:22:16 GMT"},{"Name":"Link","Value":"\u003C_content/NotesFullStack.Shared/NotesFullStack.Shared.xfta8uwavp.bundle.scp.css\u003E; rel=\u0022preload\u0022; as=\u0022style\u0022"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>
