@@ -4923,6 +4923,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.AspNetCore.Components.Web >= 9.0.0",
+      "Microsoft.EntityFrameworkCore.Design >= 9.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.8"
     ]
@@ -4981,6 +4982,12 @@
           "Microsoft.AspNetCore.Components.Web": {
             "target": "Package",
             "version": "[9.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[9.0.8, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

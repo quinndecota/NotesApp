@@ -1,10 +1,11 @@
 ﻿@page "/register"
-@using NotesFullStack.Shared.DTOs
+@inject NavigationManager NavigationManager
+@inject IAuthService AuthService
 
 <div class="flex h-screen w-screen content-center items-center justify-center bg-gray-100">
     <div class="rounded-md bg-white p-5 shadow" >
         <h1>Register</h1>
-        <EditForm Model="_registerModel">
+        <EditForm Model="_registerModel" OnValidSubmit="RegisterAsync">
             <DataAnnotationsValidator />
             <div class="spave-y-3">
                 <div>
@@ -28,9 +29,18 @@
 
                 </div>
 
+                @if (_errorMessage is not null)
+                {
+                    <p class="p3 flex justify-between bg-red-400">
+                        <label>@_errorMessage</label>
+                        
+                        <button type="button" onclick="ClearErrorMessage" class="font-bold">X</button>
+                    </p>
+                }
+
                 <div class="">
 
-                    <button type="submit" class="w-full rounded-md bg-blue-700 text-center text-white hover:bg-blend-darken"> Login</button>
+                    <button type="submit" class="w-full rounded-md bg-blue-700 text-center text-white hover:bg-blend-darken">Register</button>
                     <hr />
                     <NavLink href="login" class="text-blue-700">Existing User? Click here.</NavLink>
 
@@ -41,6 +51,25 @@
     </div>
 </div>
 @code {
-    private RegisterModel _registerModel = new(); 
+    private RegisterModel _registerModel = new();
+    private string? _errorMessage;
+    private async Task RegisterAsync()
+    {
 
+        var result = await AuthService.RegisterAsync(_registerModel);
+
+        if(!result.IsSuccess)
+        {
+            //Error
+            _errorMessage = result.Error;
+
+            return;
+        }
+        //Success
+        NavigationManager.NavigateTo("login");
+    }
+    private void ClearErrorMessage()
+    {
+        _errorMessage = null;
+    }
 }

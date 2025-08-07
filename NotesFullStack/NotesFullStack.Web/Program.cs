@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using NotesFullStack.Shared.Services;
 using NotesFullStack.Web.Components;
 using NotesFullStack.Web.Data;
+using NotesFullStack.Web.Data.Entities;
 using NotesFullStack.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,10 @@ builder.Services.AddDbContextFactory<DataContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("Default");
     options.UseSqlServer(connectionString);
 });
+
+builder.Services.AddTransient<IPasswordHasher<User>, PasswordHasher<User>>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();    
 
 var app = builder.Build();
 

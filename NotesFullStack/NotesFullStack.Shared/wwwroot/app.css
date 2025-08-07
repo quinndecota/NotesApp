@@ -590,6 +590,10 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -602,6 +606,11 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity, 1));
 }
 
 .bg-white {
@@ -625,6 +634,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .text-blue-700 {
