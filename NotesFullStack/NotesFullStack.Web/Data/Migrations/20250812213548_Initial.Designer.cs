@@ -11,7 +11,7 @@ using NotesFullStack.Web.Data;
 namespace NotesFullStack.Web.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250807234447_Initial")]
+    [Migration("20250812213548_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

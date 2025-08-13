@@ -28,6 +28,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
+AutoMigrateDbAsync(app.Services);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -46,3 +48,13 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(NotesFullStack.Shared._Imports).Assembly);
 
 app.Run();
+
+void AutoMigrateDbAsync(IServiceProvider sp) {
+    using var scope = sp.CreateScope();
+    var context = scope.ServiceProvider
+        .GetRequiredService<IDbContextFactory<DataContext>>()
+        .CreateDbContext();
+
+    if (context.Database.GetPendingMigrations().Any())
+        context.Database.Migrate();
+}

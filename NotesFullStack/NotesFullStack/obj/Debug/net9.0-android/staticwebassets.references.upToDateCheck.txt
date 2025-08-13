@@ -11,3 +11,5 @@ C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0
 C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0\staticwebassets.build.json
 C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0\staticwebassets.build.json
 C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0\staticwebassets.build.json
+C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0\staticwebassets.build.json
+C:\Projects\NotesFullStack\NotesFullStack\NotesFullStack.Shared\obj\Debug\net9.0\staticwebassets.build.json

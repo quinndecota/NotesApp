@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NotesFullStack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+79b3ef76b4b96c16cabfd8c5bc50eb50576e25d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c67a9c3d00960f20e2eebd0eeb9b33e524aa49b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("NotesFullStack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NotesFullStack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
