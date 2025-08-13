@@ -1,10 +1,15 @@
 ﻿@page "/login"
-@using NotesFullStack.Shared.DTOs
+
+@attribute [ExcludeFromInteractiveRouting]
+
+@inject NavigationManager NavigationManager
+@inject IAuthService AuthService
+
 
 <div class="flex h-screen w-screen content-center items-center justify-center bg-gray-100" >
     <div class="rounded-md bg-white p-5 shadow">
         <h1>Login</h1>
-        <EditForm Model="_loginModel">
+        <EditForm Model="_loginModel" OnValidSubmit="LoginAsync" FormName="loginForm">
             <DataAnnotationsValidator />
             <div class="spave-y-3 bg-white">
                 <div >
@@ -22,6 +27,16 @@
 
                 </div>
 
+
+                @if (_errorMessage is not null)
+                {
+                    <p class="p3 flex justify-between bg-red-400" id="err">
+                        <label>@_errorMessage</label>
+
+                        <button type="button" onclick="document.getElementById('err').remove()" class="font-bold">X</button>
+                    </p>
+                }
+
                 <div class="">
                 
                     <button type="submit" class="w-full rounded-md bg-blue-700 text-center text-white hover:bg-blend-darken">Login</button>
@@ -35,5 +50,33 @@
     </div>
 </div>
 @code {
-    private LoginModel _loginModel = new();
+    [SupplyParameterFromForm(FormName = "loginForm")]
+    private LoginModel _loginModel { get; set; } = new();
+    private string? _errorMessage;
+    private async Task LoginAsync()
+    {
+
+        var result = await AuthService.LoginAsync(_loginModel);
+
+        if (!result.IsSuccess)
+        {
+            //Error
+            _errorMessage = result.Error;
+
+            return;
+        }
+        //Success
+        var loggedInUser = result.Data;
+
+        var platformLoginResult = await AuthService.PlatformLoginAsync(loggedInUser);
+        if(!platformLoginResult.IsSuccess)
+        {
+            _errorMessage = result.Error;
+            return;
+        }
+        //Set Cookies to Authorized
+
+        //Nav
+        NavigationManager.NavigateTo("/");
+    }
 }

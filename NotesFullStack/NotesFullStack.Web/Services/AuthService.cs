@@ -1,4 +1,7 @@
 ﻿
+using System.Security.Claims;
+
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,26 +16,45 @@ namespace NotesFullStack.Web.Services
     {
         private readonly IDbContextFactory<DataContext> _contextFactory;
         private readonly IPasswordHasher<User> _passwordHasher;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthService(IDbContextFactory<DataContext> contextFactory, IPasswordHasher<User> passwordHasher)
+        public AuthService(IDbContextFactory<DataContext> contextFactory, IPasswordHasher<User> passwordHasher, IHttpContextAccessor httpContextAccessor)
         {
             _contextFactory = contextFactory;
             _passwordHasher = passwordHasher;
+            _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<MethodResult> LoginAsync(LoginModel model)
+
+
+        public async Task<MethodResult<LoggedinUser>> LoginAsync(LoginModel model)
         {
             var context = _contextFactory.CreateDbContext();
             var user = await context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
 
             if (user is null)
             {
-                return MethodResult.Fail("Email not found in Database");
+                return MethodResult<LoggedinUser>.Fail("Email not found in Database");
             }
             var isPasswordCorrect = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password);
             if (isPasswordCorrect!= PasswordVerificationResult.Success)
             {
-                return MethodResult.Fail("Incorrect Password");
+                return MethodResult<LoggedinUser>.Fail("Incorrect Password");
             }
+            var loggedInUser = new LoggedinUser(user.Id, user.Name);
+            return MethodResult<LoggedinUser>.Ok(loggedInUser);
+        }
+
+        public async Task<MethodResult> PlatformLoginAsync(LoggedinUser user)
+        {
+            var httpContext = _httpContextAccessor.HttpContext;
+            Claim[] claims = [
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Name)
+                ];
+            var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Web"));
+            
+            await httpContext.SignInAsync("Web", principal);
+
             return MethodResult.Ok();
         }
 
@@ -57,5 +79,7 @@ namespace NotesFullStack.Web.Services
 
             return MethodResult.Ok();
         }
+
+
     }
 }

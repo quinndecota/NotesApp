@@ -11,8 +11,15 @@
 </head>
 
 <body>
-    <Routes @rendermode="InteractiveServer" />
+    <Routes @rendermode="DynamicRenderMode" />
     <script src="_framework/blazor.web.js"></script>
 </body>
 
+@code{
+    [CascadingParameter]
+    public HttpContext HttpContext { get; set; } = default;
+
+    public IComponentRenderMode? DynamicRenderMode =>
+    HttpContext!.AcceptsInteractiveRouting() ? InteractiveServer : null;
+}
 </html>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,7 +25,24 @@ builder.Services.AddDbContextFactory<DataContext>(options =>
 
 builder.Services.AddTransient<IPasswordHasher<User>, PasswordHasher<User>>();
 
-builder.Services.AddScoped<IAuthService, AuthService>();    
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddAuthentication("Web")
+    .AddCookie("Web", options =>
+    {
+        options.Cookie.Name = "Web";
+        options.LoginPath = "/login";
+        options.LogoutPath = "/logout";
+        options.Cookie.HttpOnly = true;
+        options.SlidingExpiration = true;
+        options.ExpireTimeSpan = TimeSpan.FromDays(1);
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    });
+builder.Services.AddAuthorization();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<AuthenticationStateProvider, WebAuthStateProvider>();
 
 var app = builder.Build();
 
@@ -42,6 +60,8 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+app.UseAuthentication().UseAuthorization();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()

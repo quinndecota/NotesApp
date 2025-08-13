@@ -34,7 +34,7 @@
                     <p class="p3 flex justify-between bg-red-400">
                         <label>@_errorMessage</label>
                         
-                        <button type="button" onclick="ClearErrorMessage" class="font-bold">X</button>
+                        <button type="button" @onclick="() => _errorMessage=null" class="font-bold">X</button>
                     </p>
                 }
 
@@ -67,9 +67,5 @@
         }
         //Success
         NavigationManager.NavigateTo("login");
-    }
-    private void ClearErrorMessage()
-    {
-        _errorMessage = null;
     }
 }

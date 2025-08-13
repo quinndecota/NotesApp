@@ -11,6 +11,7 @@ namespace NotesFullStack.Shared.Services
     public interface IAuthService
     {
         Task<MethodResult> RegisterAsync(RegisterModel model);
-        Task<MethodResult> LoginAsync(LoginModel model);
+        Task<MethodResult<LoggedinUser>> LoginAsync(LoginModel model);
+        Task<MethodResult> PlatformLoginAsync(LoggedinUser loggedinUser);
     }
 }
